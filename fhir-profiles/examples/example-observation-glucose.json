@@ -1,0 +1,92 @@
+{
+  "resourceType": "Observation",
+  "id": "ejemplo-glucosa-ayuno",
+  "meta": {
+    "profile": [
+      "https://axxia.health/fhir/StructureDefinition/axxia-observation"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratorio"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "1558-6",
+        "display": "Glucosa en ayunas en suero o plasma"
+      }
+    ],
+    "text": "Glucosa en ayunas"
+  },
+  "subject": {
+    "reference": "Patient/AX-PAT-123456789012",
+    "display": "Juan Pérez García"
+  },
+  "effectiveDateTime": "2025-11-03T08:00:00-06:00",
+  "issued": "2025-11-03T10:30:00-06:00",
+  "performer": [
+    {
+      "reference": "Organization/AX-INST-LAB001",
+      "display": "Laboratorio Clínico del Norte"
+    }
+  ],
+  "valueQuantity": {
+    "value": 126,
+    "unit": "mg/dL",
+    "system": "http://unitsofmeasure.org",
+    "code": "mg/dL"
+  },
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "H",
+          "display": "Alto"
+        }
+      ],
+      "text": "Elevado"
+    }
+  ],
+  "note": [
+    {
+      "text": "Paciente en ayuno de 10 horas. Muestra tomada a las 8:00 am. Resultado sugiere prediabetes, requiere confirmación con HbA1c."
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 70,
+        "unit": "mg/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg/dL"
+      },
+      "high": {
+        "value": 100,
+        "unit": "mg/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg/dL"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      },
+      "text": "70-100 mg/dL (ayuno)"
+    }
+  ]
+}

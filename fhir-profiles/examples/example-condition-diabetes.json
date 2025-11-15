@@ -1,0 +1,81 @@
+{
+  "resourceType": "Condition",
+  "id": "ejemplo-diabetes-tipo2",
+  "meta": {
+    "profile": [
+      "https://axxia.health/fhir/StructureDefinition/axxia-condition"
+    ]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active",
+        "display": "Activo"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmado"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Diagnóstico de encuentro"
+        }
+      ]
+    }
+  ],
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24484000",
+        "display": "Grave"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "44054006",
+        "display": "Diabetes mellitus tipo 2"
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10",
+        "code": "E11",
+        "display": "Diabetes mellitus tipo 2"
+      }
+    ],
+    "text": "Diabetes mellitus tipo 2"
+  },
+  "subject": {
+    "reference": "Patient/AX-PAT-123456789012",
+    "display": "Juan Pérez García"
+  },
+  "onsetDateTime": "2023-01-15",
+  "recordedDate": "2025-11-03T14:30:00-06:00",
+  "recorder": {
+    "reference": "Practitioner/AX-PRV-987654321098",
+    "display": "Dra. María González López"
+  },
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/AX-PRV-987654321098"
+      },
+      "time": "2025-11-03T14:30:00-06:00",
+      "text": "Paciente diagnosticado con diabetes mellitus tipo 2 hace 2 años. Actualmente con control inadecuado (HbA1c 8.5%). Se ajusta tratamiento y se refiere a nutrición."
+    }
+  ]
+}
