@@ -1,0 +1,118 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "axxia-condition",
+  "url": "https://axxia.health/fhir/StructureDefinition/axxia-condition",
+  "version": "1.0.0",
+  "name": "AxxiaCondition",
+  "title": "Perfil Axxia de Condición/Diagnóstico",
+  "status": "active",
+  "date": "2025-11-03",
+  "publisher": "Axxia - El Ecosistema Inteligente de Salud",
+  "description": "Perfil FHIR R4 para diagnósticos y condiciones clínicas en Axxia. Cumple con NOM-004 y NOM-024.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Condition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "description": "SNOMED CT o CIE-10",
+          "valueSet": "https://axxia.health/fhir/ValueSet/diagnosis-codes"
+        }
+      },
+      {
+        "id": "Condition.code.coding",
+        "path": "Condition.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Condition.code.coding:snomed",
+        "path": "Condition.code.coding",
+        "sliceName": "snomed",
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://snomed.info/sct"
+        }
+      },
+      {
+        "id": "Condition.code.coding:icd10",
+        "path": "Condition.code.coding",
+        "sliceName": "icd10",
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/sid/icd-10"
+        }
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.recordedDate",
+        "path": "Condition.recordedDate",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.clinicalStatus",
+        "path": "Condition.clinicalStatus",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus",
+        "path": "Condition.verificationStatus",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/condition-category"
+        }
+      },
+      {
+        "id": "Condition.severity",
+        "path": "Condition.severity",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.note",
+        "path": "Condition.note",
+        "comment": "Notas clínicas del médico tratante (requerido NOM-004)"
+      }
+    ]
+  }
+}
